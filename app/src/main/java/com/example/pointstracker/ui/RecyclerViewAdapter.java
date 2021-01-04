@@ -35,13 +35,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView nameTxt, numLLTxt, numPointsTxt;
+        private TextView nameTxt, numLLWinTxt, numLLLoseTxt, numPWin, numPLose, numPointsTxt;
         private ImageView avatar;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             nameTxt = itemView.findViewById(R.id.name_textView);
-            numLLTxt = itemView.findViewById(R.id.numLandlord_textView5);
+            numLLWinTxt = itemView.findViewById(R.id.landlordWin_textView5);
+            numLLLoseTxt = itemView.findViewById(R.id.landlordLose_textView2);
+            numPWin = itemView.findViewById(R.id.peasantWin_textView3);
+            numPLose = itemView.findViewById(R.id.peasantLose_textView4);
             numPointsTxt = itemView.findViewById(R.id.numpoints_textView);
             avatar = itemView.findViewById(R.id.main_list_imageView);
         }
@@ -62,13 +65,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.avatar.setBackgroundResource(R.drawable.ic_launcher_background);
         holder.avatar.setImageResource(R.drawable.ic_launcher_foreground);
         holder.numPointsTxt.setText(Integer.toString(myUserList.get(position).getPoints()));
-        holder.numLLTxt.setText(Integer.toString(myUserList.get(position).getNumLandlords()));
+        holder.numLLWinTxt.setText(Integer.toString(myUserList.get(position).getNumLandlordsWin()));
+        holder.numLLLoseTxt.setText(Integer.toString(myUserList.get(position).getNumLandlordsLose()));
+        holder.numPWin.setText(Integer.toString(myUserList.get(position).getNumPWin()));
+        holder.numPLose.setText(Integer.toString(myUserList.get(position).getNumPLose()));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setMessage("Landlord, did you win?");
-                builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                builder.setPositiveButton(R.string.I_win, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         users.updateScoreLandlordWin(true, position);
@@ -77,7 +83,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                         dialog.dismiss();
                     }
                 });
-                builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(R.string.I_lose, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         users.updateScoreLandlordWin(false, position);
@@ -103,7 +109,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 final EditText pointsEditText = dialog.findViewById(R.id.points_edittext);
                 pointsEditText.setText(Integer.toString(user.getPoints()));
                 final EditText LLEditText = dialog.findViewById(R.id.numLL_edittext);
-                LLEditText.setText(Integer.toString(user.getNumLandlords()));
+                LLEditText.setText(Integer.toString(0));
 
                 Button button = dialog.findViewById(R.id.update_button);
                 button.setOnClickListener(new View.OnClickListener() {
@@ -114,7 +120,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                                 Integer.parseInt(pointsEditText.getText().toString());
                         int numLL =
                                 Integer.parseInt(LLEditText.getText().toString());
-                        users.updateUser(position, new User(name, numPoints, numLL));
+                        users.updateUser(position, new User(name, numPoints, 0, 0, 0, 0));
                         notifyDataSetChanged();
                         Toast.makeText(v.getContext(), R.string.userUpdated, Toast.LENGTH_SHORT).show();
                         dialog.dismiss();

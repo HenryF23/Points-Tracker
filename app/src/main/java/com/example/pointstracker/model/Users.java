@@ -46,6 +46,10 @@ public class Users implements Iterable<User> {
     public void removeAllScores() {
         for (User user : myUsers) {
             user.setPoints(0);
+            user.setNumLandlordsLose(0);
+            user.setNumLandlordsWin(0);
+            user.setNumPLose(0);
+            user.setNumPWin(0);
         }
     }
 
@@ -54,16 +58,22 @@ public class Users implements Iterable<User> {
 
         for(User user : myUsers) {
             if(n == index) {
-                if(isWin)
+                if(isWin){
                     user.setPoints(user.getPoints() + 2);
-                else
+                    user.setNumLandlordsWin(user.getNumLandlordsWin() + 1);
+                } else {
                     user.setPoints(user.getPoints() - 2);
+                    user.setNumLandlordsLose(user.getNumLandlordsLose() + 1);
+                }
             }
             else {
-                if(isWin)
-                    user.setPoints(user.getPoints() - 1);
-                else
+                if(!isWin) {
                     user.setPoints(user.getPoints() + 1);
+                    user.setNumPWin(user.getNumPWin() + 1);
+                } else {
+                    user.setPoints(user.getPoints() - 1);
+                    user.setNumPLose(user.getNumPLose() + 1);
+                }
             }
             n++;
         }

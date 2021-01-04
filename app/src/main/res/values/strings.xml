@@ -25,4 +25,10 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="scoreUpdate">Score Updated</string>
+    <string name="landlord_win">Landlord win:</string>
+    <string name="landlord_lose">Landlord lose:</string>
+    <string name="peasant_win">Peasant win:</string>
+    <string name="peasant_lose">Peasant lose:</string>
+    <string name="I_win">Win</string>
+    <string name="I_lose">Lose</string>
 </resources>

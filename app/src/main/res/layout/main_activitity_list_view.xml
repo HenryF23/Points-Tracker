@@ -18,64 +18,87 @@
             android:layout_height="77dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="32dp"
             android:contentDescription="@string/none"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.501"
+            app:layout_constraintTop_toBottomOf="@+id/name_textView"
             tools:srcCompat="@tools:sample/avatars" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            app:layout_constraintBottom_toBottomOf="@+id/main_list_imageView"
+            android:layout_marginStart="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/main_list_imageView"
-            app:layout_constraintTop_toTopOf="@+id/main_list_imageView">
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/main_list_numberLandlord_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/number_of_landlords"
-                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/landlord_win"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/main_list_pointsGained_textView"
                 app:layout_constraintTop_toBottomOf="@+id/main_list_pointsGained_textView" />
-
-            <TextView
-                android:id="@+id/main_list_name_textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/name"
-                app:layout_constraintEnd_toEndOf="@+id/main_list_numberLandlord_textView"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/main_list_pointsGained_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/points_gained"
-                app:layout_constraintEnd_toEndOf="@+id/main_list_numberLandlord_textView"
-                app:layout_constraintTop_toBottomOf="@+id/main_list_name_textView" />
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/name_textView"
+                android:id="@+id/landlordWin_textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="@string/none"
-                app:layout_constraintStart_toEndOf="@+id/main_list_name_textView"
-                app:layout_constraintTop_toTopOf="@+id/main_list_name_textView" />
-
-            <TextView
-                android:id="@+id/numLandlord_textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="@string/none"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/main_list_numberLandlord_textView"
                 app:layout_constraintStart_toEndOf="@+id/main_list_numberLandlord_textView"
                 app:layout_constraintTop_toTopOf="@+id/main_list_numberLandlord_textView" />
+
+            <TextView
+                android:id="@+id/landlordLose_textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/none"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintTop_toTopOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/peasantWin_textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/none"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textView2"
+                app:layout_constraintStart_toEndOf="@+id/textView2"
+                app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+            <TextView
+                android:id="@+id/peasantLose_textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/none"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textView3"
+                app:layout_constraintStart_toEndOf="@+id/textView3"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
             <TextView
                 android:id="@+id/numpoints_textView"
@@ -83,10 +106,51 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="@string/none"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/main_list_pointsGained_textView"
                 app:layout_constraintStart_toEndOf="@+id/main_list_pointsGained_textView"
                 app:layout_constraintTop_toTopOf="@+id/main_list_pointsGained_textView" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/landlord_lose"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/main_list_pointsGained_textView"
+                app:layout_constraintTop_toBottomOf="@+id/main_list_numberLandlord_textView" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/peasant_win"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/peasant_lose"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/textView2"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/name_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/none"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/main_list_imageView"
+            app:layout_constraintStart_toStartOf="@+id/main_list_imageView"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
