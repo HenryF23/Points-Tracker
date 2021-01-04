@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/main_list_imageView"
             android:layout_width="77dp"
             android:layout_height="77dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:contentDescription="@string/none"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +29,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="64dp"
+            android:layout_marginStart="60dp"
             app:layout_constraintBottom_toBottomOf="@+id/main_list_imageView"
             app:layout_constraintStart_toEndOf="@+id/main_list_imageView"
             app:layout_constraintTop_toTopOf="@+id/main_list_imageView">
@@ -41,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/number_of_landlords"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/main_list_name_textView" />
+                app:layout_constraintTop_toBottomOf="@+id/main_list_pointsGained_textView" />
 
             <TextView
                 android:id="@+id/main_list_name_textView"
@@ -57,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/points_gained"
                 app:layout_constraintEnd_toEndOf="@+id/main_list_numberLandlord_textView"
-                app:layout_constraintTop_toBottomOf="@+id/main_list_numberLandlord_textView" />
+                app:layout_constraintTop_toBottomOf="@+id/main_list_name_textView" />
 
             <TextView
                 android:id="@+id/name_textView"
@@ -74,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="@string/none"
-                app:layout_constraintBottom_toTopOf="@+id/main_list_pointsGained_textView"
+                app:layout_constraintBottom_toBottomOf="@+id/main_list_numberLandlord_textView"
                 app:layout_constraintStart_toEndOf="@+id/main_list_numberLandlord_textView"
                 app:layout_constraintTop_toTopOf="@+id/main_list_numberLandlord_textView" />
 
