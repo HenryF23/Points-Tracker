@@ -40,5 +40,9 @@ jobs:
 
       # run tests!
       - run: |
-          pwd
-          git status
+          ls
+          gradle javadoc
+          git add .
+          git commit -m "Add Javadoc"
+          git push
+          ls
