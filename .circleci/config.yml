@@ -41,7 +41,8 @@ jobs:
       # run tests!
       - run: |
           ls
-          gradle build
+          ./gradlew assembleRelease
+          ./gradlew generateApiDoc
           git add .
           git commit -m "Add Javadoc"
           git push
