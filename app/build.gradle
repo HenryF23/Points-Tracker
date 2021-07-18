@@ -35,3 +35,39 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
+
+task generateApiDoc() {
+    group "reporting"
+    description "Generates Javadoc."
+}
+
+android.libraryVariants.all { variant ->
+    // Only consider release 
+    if (variant.buildType.name == "release") {
+        def task = project.tasks.create("generate${variant.name.capitalize()}Javadoc", Javadoc) {
+            group "ApiDoc"
+            description "Generates Javadoc for $variant.name."
+
+            // Source files from the variant
+            source = variant.javaCompiler.source
+            // Classpath from the variant + android.jar
+            classpath = variant.javaCompiler.classpath + files(prj.android.getBootClasspath()) + files("$buildDir/intermediates/classes/release")
+
+            /* add the excluded packages */
+            exclude "**/R**"
+            exclude "**/BuildConfig*"
+
+            options.windowTitle = "My Library"
+            options.memberLevel = JavadocMemberLevel.PROTECTED
+            options.linkSource false
+            options.author = true
+            //options.links("http://docs.oracle.com/javase/7/docs/api/", "http://d.android.com/reference");
+
+            failOnError false
+        }
+
+        task.dependsOn assemble
+
+        generateApiDoc.dependsOn task
+    }
+}
