@@ -41,6 +41,7 @@ jobs:
       # run tests!
       - run: |
           ls
+          cd app/
           ./gradlew assembleRelease
           ./gradlew generateApiDoc
           git add .
