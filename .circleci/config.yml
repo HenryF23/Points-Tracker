@@ -17,28 +17,10 @@ jobs:
           fingerprints:
             - "ac:2c:6b:1c:fa:01:a5:9e:ad:27:bb:d9:37:d5:a1:c0"
 
-      # Download and cache dependencies
-#       - restore_cache:
-#           keys:
-#             - v1-dependencies-{{ checksum "build.gradle" }}
-#             # fallback to using the latest cache if no exact match is found
-#             - v1-dependencies-
-
-      # - run: gradle dependencies
-
-#       - save_cache:
-#           paths:
-#             - ~/.gradle
-#           key: v1-dependencies-{{ checksum "build.gradle" }}
-
       - run: |
-          pwd
-          ls
-          git status
-          rm -rf docs/
-          javadoc -Xdoclint:none -d /home/circleci/repo/javadoc -sourcepath /home/circleci/repo/app/src/main/java -subpackages com --ignore-source-errors -quiet -Xmaxwarns 1 -Xmaxerrs 1
+          javadoc -Xdoclint:none -d /home/circleci/repo/docs -sourcepath /home/circleci/repo/app/src/main/java -subpackages com --ignore-source-errors -quiet -Xmaxwarns 1 -Xmaxerrs 1
           git add *
           git config user.name "CircleCI"
           git config user.email "CircleCI@ci.com"
-          git commit -m "Test"
+          git commit -m "[skip ci] Update javadoc"
           git push --set-upstream origin docs
