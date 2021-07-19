@@ -47,4 +47,4 @@ jobs:
           git config user.name "CircleCI"
           git config user.email "CircleCI@ci.com"
           git commit -m "Test"
-          git push
+          git push --set-upstream origin docs
