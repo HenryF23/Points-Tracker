@@ -42,3 +42,9 @@ jobs:
       - run: |
           ls
           git status
+          rm -rf docs/
+          git add .
+          git config user.name "CircleCI"
+          git config user.email "CircleCI@ci.com"
+          git commit -m "Test"
+          git push
