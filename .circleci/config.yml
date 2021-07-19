@@ -32,6 +32,8 @@ jobs:
 #           key: v1-dependencies-{{ checksum "build.gradle" }}
 
       - run: |
+          pwd
+          ls /repo/app/src/main/java
           ls
           git status
           rm -rf docs/
