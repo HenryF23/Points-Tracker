@@ -33,11 +33,10 @@ jobs:
 
       - run: |
           pwd
-          ls /repo/app/src/main/java
           ls
           git status
           rm -rf docs/
-          javadoc -Xdoclint:none -d /repo/javadoc -sourcepath /repo/app/src/main/java -subpackages com --ignore-source-errors -quiet -Xmaxwarns 1 -Xmaxerrs 1
+          javadoc -Xdoclint:none -d /home/circleci/repo/javadoc -sourcepath /home/circleci/repo/app/src/main/java -subpackages com --ignore-source-errors -quiet -Xmaxwarns 1 -Xmaxerrs 1
           git add *
           git config user.name "CircleCI"
           git config user.email "CircleCI@ci.com"
