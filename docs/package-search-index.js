@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.example.a3dscannerapp"},{"l":"com.example.a3dscannerapp.fio"},{"l":"com.example.a3dscannerapp.helpers"},{"l":"com.example.a3dscannerapp.imu"},{"l":"com.example.a3dscannerapp.model"},{"l":"com.example.a3dscannerapp.rendering"}]
