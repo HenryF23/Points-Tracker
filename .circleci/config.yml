@@ -6,12 +6,12 @@ orbs:
   path-filtering: circleci/path-filtering@0.0.2
 
 parameters:
-  build:
+  render_javadoc:
     type: boolean
     default: false
 
 jobs:
-  render_javadoc:
+  build:
     docker:
       - image: circleci/openjdk:11.0.3-jdk-stretch
 
