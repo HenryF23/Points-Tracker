@@ -36,11 +36,11 @@ jobs:
           git commit -m "[skip ci] Update javadoc"
           git push --set-upstream origin docs
 
-workflow:
+workflows:
   build_javadoc:
-    branches:
-      only:
-        - master
-        - /feature-android.*/
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only:
+                - /feature-android.*/
