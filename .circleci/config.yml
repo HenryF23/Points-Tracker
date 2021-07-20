@@ -43,5 +43,6 @@ workflows:
           filters:
             branches:
               only:
+                - docs
                 - master
                 - /feature-android.*/
