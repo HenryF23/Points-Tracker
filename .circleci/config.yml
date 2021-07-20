@@ -1,7 +1,14 @@
 version: 2.1
 
+setup: true
+
 orbs:
   path-filtering: circleci/path-filtering@0.0.2
+
+parameters:
+  build:
+    type: boolean
+    default: false
 
 jobs:
   build:
@@ -31,6 +38,10 @@ jobs:
 
 workflow:
   build_javadoc:
+    when: << pipeline.parameters.build >>
+    jobs:
+      - build
+  check_files:
     - path-filtering/filter:
         mapping: |
           app/src/main/java/.* build true
