@@ -38,12 +38,9 @@ jobs:
 
 workflow:
   build_javadoc:
-    when: << pipeline.parameters.render_javadoc >>
+    branches:
+      only:
+        - master
+        - /feature-android.*/
     jobs:
       - build
-  check_files:
-    - path-filtering/filter:
-        base-revision: docs
-        mapping: |
-          app/.* render_javadoc true
-        config-path: .circleci/config.yml
