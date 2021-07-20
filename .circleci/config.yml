@@ -11,7 +11,7 @@ parameters:
     default: false
 
 jobs:
-  build:
+  render_javadoc:
     docker:
       - image: circleci/openjdk:11.0.3-jdk-stretch
 
@@ -38,12 +38,12 @@ jobs:
 
 workflow:
   build_javadoc:
-    when: << pipeline.parameters.build >>
+    when: << pipeline.parameters.render_javadoc >>
     jobs:
       - build
   check_files:
     - path-filtering/filter:
         base-revision: docs
         mapping: |
-          app/src/main/java/.* build true
+          app/.* render_javadoc true
         config-path: .circleci/config.yml
