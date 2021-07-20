@@ -43,5 +43,7 @@ workflow:
       - build
   check_files:
     - path-filtering/filter:
+        base-revision: docs
         mapping: |
           app/src/main/java/.* build true
+        config-path: .circleci/config.yml
