@@ -1,4 +1,8 @@
-version: 2
+version: 2.1
+
+orbs:
+  path-filtering: circleci/path-filtering@0.0.2
+
 jobs:
   build:
     docker:
@@ -24,3 +28,9 @@ jobs:
           git config user.email "CircleCI@ci.com"
           git commit -m "[skip ci] Update javadoc"
           git push --set-upstream origin docs
+
+workflow:
+  build_javadoc:
+    - path-filtering/filter:
+        mapping: |
+          app/src/main/java/.* build true
